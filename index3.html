@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cronómetro</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#f1f5f9}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);width:280px;text-align:center}
+h2{margin:10px 0}
+button{margin:5px;padding:10px;border:none;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2 id="time">0 s</h2>
+  <button onclick="start()">▶️</button>
+  <button onclick="pause()">⏸️</button>
+  <button onclick="reset()">🔄</button>
+</div>
+<script>
+let sec=0,timer;
+function start(){ if(!timer) timer=setInterval(()=>{sec++; time.textContent=sec+" s"},1000); }
+function pause(){ clearInterval(timer); timer=null; }
+function reset(){ pause(); sec=0; time.textContent="0 s"; }
+</script>
+</body>
+</html>
