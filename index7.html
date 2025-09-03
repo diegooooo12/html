@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Conversor de divisas</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#ecfeff}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);text-align:center}
+input,select{padding:8px;margin:5px}
+button{padding:8px;border:none;background:#06b6d4;color:#fff;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+  <h3>Conversor de divisas</h3>
+  <input id="amt" type="number" placeholder="Cantidad">
+  <select id="from"><option>USD</option><option>EUR</option><option>MXN</option></select>
+  →
+  <select id="to"><option>USD</option><option>EUR</option><option>MXN</option></select>
+  <br><button onclick="conv()">Convertir</button>
+  <p id="res"></p>
+</div>
+<script>
+// Tasas aproximadas
+const rates={USD:{USD:1,EUR:0.9,MXN:17},EUR:{USD:1.1,EUR:1,MXN:18.5},MXN:{USD:0.059,EUR:0.054,MXN:1}};
+function conv(){
+  let a=+amt.value;
+  res.textContent=(a*rates[from.value][to.value]).toFixed(2)+" "+to.value;
+}
+</script>
+</body>
+</html>
