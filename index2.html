@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Generador de contraseñas</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#eef2ff}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);width:300px;text-align:center}
+input{width:80%;padding:10px;font-size:1.1em;margin:10px 0}
+button{padding:10px;border:none;background:#6366f1;color:#fff;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+  <h3>Generador de contraseñas</h3>
+  <input id="out" readonly>
+  <br>
+  <button onclick="gen()">Generar</button>
+</div>
+<script>
+function gen(){
+  let chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+  let pass="";
+  for(let i=0;i<12;i++) pass+=chars[Math.floor(Math.random()*chars.length)];
+  out.value=pass;
+}
+</script>
+</body>
+</html>
