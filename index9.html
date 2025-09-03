@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Modo claro/oscuro</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;transition:0.3s}
+.dark{background:#0f172a;color:#f1f5f9}
+.light{background:#f8fafc;color:#111}
+button{padding:10px 20px;border:none;border-radius:8px;cursor:pointer;margin-top:20px}
+</style>
+</head>
+<body class="light">
+<div class="box" style="text-align:center">
+  <h2 id="t">Modo Claro</h2>
+  <button onclick="toggle()">Cambiar tema</button>
+</div>
+<script>
+function toggle(){
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+  t.textContent=document.body.classList.contains("dark")?"Modo Oscuro":"Modo Claro";
+}
+</script>
+</body>
+</html>
