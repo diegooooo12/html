@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Quiz rápido</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#e0f2fe}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);width:320px}
+h3{margin:10px 0}
+button{margin-top:10px;padding:8px 12px;border:none;border-radius:8px;cursor:pointer;background:#0284c7;color:#fff}
+</style>
+</head>
+<body>
+<div class="box">
+  <h3>Quiz</h3>
+  <form id="quiz">
+    <p>1. 2+2=</p>
+    <input type="radio" name="q1" value="4">4
+    <input type="radio" name="q1" value="5">5
+    <p>2. Capital de Francia</p>
+    <input type="radio" name="q2" value="Paris">París
+    <input type="radio" name="q2" value="Roma">Roma
+    <p>3. HTML sirve para...</p>
+    <input type="radio" name="q3" value="web">Páginas web
+    <input type="radio" name="q3" value="juego">Juegos
+    <br><button type="button" onclick="check()">Enviar</button>
+  </form>
+  <p id="res"></p>
+</div>
+<script>
+function check(){
+  let p=0;
+  if(quiz.q1.value=="4")p++;
+  if(quiz.q2.value=="Paris")p++;
+  if(quiz.q3.value=="web")p++;
+  res.textContent="Tu puntaje: "+p+"/3";
+}
+</script>
+</body>
+</html>
