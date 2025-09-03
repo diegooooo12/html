@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Temporizador</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#fef9c3}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.2);text-align:center}
+input{padding:5px;font-size:1em;width:80px;text-align:center}
+button{margin:5px;padding:10px;border:none;border-radius:8px;cursor:pointer}
+#out{font-size:1.5em;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h3>Temporizador</h3>
+  <input id="sec" type="number" placeholder="segundos">
+  <br>
+  <button onclick="start()">Iniciar</button>
+  <button onclick="stop()">Detener</button>
+  <p id="out"></p>
+</div>
+<script>
+let t,remaining;
+function start(){
+  remaining=+sec.value;
+  out.textContent=remaining+" s";
+  if(t) clearInterval(t);
+  t=setInterval(()=>{
+    remaining--;
+    out.textContent=remaining+" s";
+    if(remaining<=0){clearInterval(t);out.textContent="⏰ ¡Tiempo!";}
+  },1000);
+}
+function stop(){clearInterval(t);}
+</script>
+</body>
+</html>
