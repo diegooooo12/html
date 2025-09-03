@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Conversor de unidades</title>
+<style>
+body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#faf5ff}
+.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);text-align:center}
+input,select{padding:8px;margin:5px}
+button{padding:8px;border:none;background:#9333ea;color:#fff;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+  <h3>Conversor de longitud</h3>
+  <input id="val" type="number" placeholder="Valor">
+  <select id="from">
+    <option>m</option><option>cm</option><option>km</option><option>ft</option><option>in</option>
+  </select>
+  →
+  <select id="to">
+    <option>m</option><option>cm</option><option>km</option><option>ft</option><option>in</option>
+  </select>
+  <br><button onclick="conv()">Convertir</button>
+  <p id="res"></p>
+</div>
+<script>
+const factor={m:1,cm:0.01,km:1000,ft:0.3048,in:0.0254};
+function conv(){
+  let v=+val.value*factor[from.value]/factor[to.value];
+  res.textContent=v+" "+to.value;
+}
+</script>
+</body>
+</html>
